@@ -6,17 +6,13 @@ app = FastAPI()
 # تكوين CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # السماح لجميع النطاقات، يمكنك تحديد نطاقات معينة
+    allow_origins=["*"],  
     allow_credentials=True,
-    allow_methods=["*"],  # السماح بجميع الطرق (GET, POST, PUT, DELETE, إلخ.)
-    allow_headers=["*"],  # السماح بجميع الرؤوس
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
 
 @app.get("/data")
 async def get_data():
     return {"message": "Hello from FastAPI with CORS!"}
 
-# تشغيل التطبيق
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
